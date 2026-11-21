@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
 
 const NAV_ITEMS = [
-  { label: "About", href: "/#about" },
+  { label: "Home", href: "/" },
   { label: "Blogs", href: "/blogs", isRoute: true },
   { label: "Contact", href: "/#contact" },
 ]
