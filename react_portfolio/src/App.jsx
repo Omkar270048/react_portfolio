@@ -160,8 +160,8 @@ const EXPERIENCE_DATA = [
       {
         name: "Subjective Answer Evaluation & Grading Suite",
         description:
-          "Engineered a React.js evaluation studio with split-screen views (student responses alongside rubrics) and an asynchronous LLM pipeline with Pydantic-validated structured outputs, cutting teacher evaluation time by 40% across 100+ students.",
-        tags: ["React.js", "FastAPI", "LLM APIs", "Pydantic", "Asyncio"],
+          "Engineered a React.js evaluation studio with split-screen views (student responses alongside rubrics) and a RAG-powered, asynchronous LLM pipeline using Gemini and Qwen models with Pydantic-validated structured outputs, cutting teacher evaluation time by 40% across 100+ students.",
+        tags: ["React.js", "FastAPI", "RAG", "Gemini", "Qwen", "Pydantic", "Asyncio"],
       },
       {
         name: "Enterprise ERP Attendance & Academic Records System",
@@ -185,6 +185,99 @@ const EXPERIENCE_DATA = [
     summary:
       "Developed native mobile UI layouts and application features in Java and Android SDK, resolving UI bugs and optimizing component responsiveness alongside senior engineers.",
     projects: [],
+  },
+]
+
+const PERSONAL_PROJECTS_DATA = [
+  {
+    name: "WPSender",
+    description:
+      "Automated WhatsApp message delivery with a repeatable sending workflow, reducing the need for repetitive manual outreach.",
+    knowMoreUrl: "blogs/5087555",
+    sourceUrl: "https://github.com/Omkar270048/WPSender",
+    sourceLabel: "GitHub",
+    viewUrl: "",
+    tags: ["WhatsApp", "Automation"],
+  },
+  {
+    name: "k-quill-editor",
+    description:
+      "Built a reusable React rich-text editor around Quill, simplifying editor integration through a consistent component interface.",
+    knowMoreUrl: "blogs/5099026",
+    sourceUrl: "https://github.com/Omkar270048/k-quill-editor",
+    sourceLabel: "GitHub",
+    viewUrl: "https://www.npmjs.com/package/@omkar-kamat/quill-keditor",
+    tags: ["React.js", "Quill.js", "Rich Text Editing"],
+  },
+  {
+    name: "Invoice Data Extraction",
+    description:
+      "Created an invoice-processing workflow that extracts structured fields from documents, helping turn manual data entry into reusable digital records.",
+    knowMoreUrl: "blogs/5099182",
+    sourceUrl: "https://colab.research.google.com/drive/1peix8zg1lgHSSWMfFXiHWL7r0FdUfxIv?usp=sharing",
+    sourceLabel: "Google Colab",
+    viewUrl: "",
+    tags: ["Document Processing", "Data Extraction"],
+  },
+  {
+    name: "Handwritten Digit Recognition",
+    description:
+      "Developed a digit-classification pipeline that converts handwritten images into predicted numeric labels using machine-learning techniques.",
+    knowMoreUrl: "",
+    sourceUrl: "https://colab.research.google.com/drive/1Od7bE86d6Dvu_PHQk19jOgAuPnN6d8O9?usp=sharing",
+    sourceLabel: "Google Colab",
+    viewUrl: "",
+    tags: ["Machine Learning", "Image Recognition"],
+  },
+  {
+    name: "Pneumonia Detection",
+    description:
+      "Applied image classification to chest X-rays to identify pneumonia-related cases, demonstrating a computer-vision workflow for medical imaging.",
+    knowMoreUrl: "",
+    sourceUrl: "https://colab.research.google.com/drive/1Njo5GCD2ZxA7ru-Q98LzIHDTOXc8NtP4?usp=sharing",
+    sourceLabel: "Google Colab",
+    viewUrl: "",
+    tags: ["Image Classification", "Machine Learning"],
+  },
+  {
+    name: "Virtual Keyboard",
+    description:
+      "Created an on-screen keyboard for virtual text entry, providing an alternative to typing with a physical keyboard.",
+    knowMoreUrl: "",
+    sourceUrl: "https://github.com/Omkar270048/VirtualKeyboard",
+    sourceLabel: "GitHub",
+    viewUrl: "",
+    tags: ["Virtual Keyboard", "Input"],
+  },
+  {
+    name: "cv2_handtracking",
+    description:
+      "Implemented hand tracking with OpenCV to translate visual input into continuous hand-movement data for interactive applications.",
+    knowMoreUrl: "",
+    sourceUrl: "https://github.com/Omkar270048/cv2_handTracking",
+    sourceLabel: "GitHub",
+    viewUrl: "",
+    tags: ["OpenCV", "Hand Tracking", "Computer Vision"],
+  },
+  {
+    name: "organ-3d",
+    description:
+      "Built a 3D organ visualization that makes anatomical models explorable through a digital interface.",
+    knowMoreUrl: "",
+    sourceUrl: "https://github.com/Omkar270048/organ-3d",
+    sourceLabel: "GitHub",
+    viewUrl: "https://organ3d.netlify.app/",
+    tags: ["3D", "Visualization"],
+  },
+  {
+    name: "QR Coder",
+    description:
+      "Created a QR-code generator that converts input data into scannable codes for straightforward sharing of links and other information.",
+    knowMoreUrl: "",
+    sourceUrl: "https://github.com/Omkar270048/qrcoder",
+    sourceLabel: "GitHub",
+    viewUrl: "https://qrcoder.web.app/",
+    tags: ["QR Codes", "Utilities"],
   },
 ]
 
@@ -250,36 +343,47 @@ export default function App() {
       {/* ── HERO SECTION ── */}
       <section id="about" className="hero-grid min-h-screen flex items-center pt-14">
         <div className="max-w-5xl mx-auto px-6 py-24 w-full">
-          <div className="reveal">
-            <p className="font-mono text-accent text-sm mb-4 tracking-widest">
-              Hello, world. I am
-            </p>
-            <h1 className="font-display font-bold text-5xl sm:text-7xl text-text leading-none mb-3 accent-glow">
-              Omkar Kamat
-            </h1>
-            <h2 className="font-display font-medium text-2xl sm:text-3xl text-muted mb-8 cursor-blink">
-              Python Full Stack Developer
-            </h2>
-            <p className="font-body text-muted text-base sm:text-lg leading-relaxed mb-10 max-w-3xl">
-              Python Full Stack Developer with 2+ years of experience engineering end-to-end web applications, interactive operational dashboards, and high-throughput REST APIs using React.js, FastAPI, Django, and PostgreSQL.
-              <br />
-              <br />
-              Proven track record of replacing fragmented, manual workflows with full-stack digital solutions—spanning automated grading pipelines, real-time tracking screens, enterprise ERP portals, and transactional e-commerce platforms. Proficient in state management, reusable component design, database query optimization, and secure role-based access control (RBAC).
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#experience"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accentL text-white font-display font-medium text-sm rounded-lg transition-colors duration-200"
-              >
-                View my work
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-accent text-muted hover:text-text font-display font-medium text-sm rounded-lg transition-colors duration-200"
-              >
-                Get in touch
-              </a>
+          <div className="reveal flex flex-col-reverse md:flex-row md:items-center gap-10 lg:gap-16">
+            <div className="flex-1">
+              <p className="font-mono text-accent text-sm mb-4 tracking-widest">
+                Hello, world. I am
+              </p>
+              <h1 className="font-display font-bold text-5xl sm:text-7xl text-text leading-none mb-3 accent-glow">
+                Omkar Kamat
+              </h1>
+              <h2 className="font-display font-medium text-2xl sm:text-3xl text-muted mb-8 cursor-blink">
+                Python Full Stack Developer
+              </h2>
+              <p className="font-body text-muted text-base sm:text-lg leading-relaxed mb-10 max-w-3xl">
+                Python Full Stack Developer with 2+ years of experience engineering end-to-end web applications, interactive operational dashboards, and high-throughput REST APIs using React.js, FastAPI, Django, and PostgreSQL.
+                <br />
+                <br />
+                Proven track record of replacing fragmented, manual workflows with full-stack digital solutions—spanning automated grading pipelines, real-time tracking screens, enterprise ERP portals, and transactional e-commerce platforms. Proficient in state management, reusable component design, database query optimization, and secure role-based access control (RBAC).
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="#experience"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accentL text-white font-display font-medium text-sm rounded-lg transition-colors duration-200"
+                >
+                  View my work
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-accent text-muted hover:text-text font-display font-medium text-sm rounded-lg transition-colors duration-200"
+                >
+                  Get in touch
+                </a>
+              </div>
+            </div>
+            <div className="shrink-0 flex justify-center md:justify-end">
+              <img
+                src="/pic.png"
+                alt="Portrait of Omkar Kamat"
+                width="240"
+                height="240"
+                className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-accent/30 shadow-2xl"
+              />
             </div>
           </div>
         </div>
@@ -487,6 +591,77 @@ export default function App() {
                   </div>
                 )}
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PERSONAL PROJECTS ── */}
+      <section id="personal-projects" className="py-20 border-t border-border">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="reveal mb-12">
+            <p className="font-mono text-accent text-xs tracking-widest mb-2">SELECTED WORK</p>
+            <h2 className="font-display font-bold text-3xl text-text">Personal Projects</h2>
+          </div>
+          <div className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PERSONAL_PROJECTS_DATA.map((project) => (
+              <article
+                key={project.name}
+                className="proj-card bg-card border border-border rounded-xl p-6 flex flex-col"
+              >
+                <div className="flex-1">
+                  <h3 className="font-display font-semibold text-lg text-text mb-3">
+                    {project.name}
+                  </h3>
+                  <p className="font-body text-sm text-muted leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-surface border border-border text-muted text-xs font-mono px-3 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-4 mt-5 pt-4 border-t border-border/50">
+                  {project.knowMoreUrl && (
+                    <a
+                      href={project.knowMoreUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accentL transition-colors"
+                    >
+                      Know more
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  {project.sourceUrl && (
+                    <a
+                      href={project.sourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accentL transition-colors"
+                    >
+                      {project.sourceLabel}
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  {project.viewUrl && (
+                    <a
+                      href={project.viewUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-medium text-text hover:text-accentL transition-colors"
+                    >
+                      View
+                    </a>
+                  )}
+                </div>
+              </article>
             ))}
           </div>
         </div>

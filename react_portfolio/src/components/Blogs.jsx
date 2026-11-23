@@ -15,7 +15,9 @@ export default function Blogs() {
         setLoading(true)
         setError(null)
 
-        const res = await fetch(`https://dev.to/api/articles?username=${DEVTO_USERNAME}`)
+        const res = await fetch(
+          `https://dev.to/api/articles?username=${DEVTO_USERNAME}&per_page=100`
+        )
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
 
         const data = await res.json()

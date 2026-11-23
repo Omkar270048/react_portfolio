@@ -202,3 +202,54 @@ body {
   margin: 1.5rem 0;
   font-style: italic;
 }
+
+.article-body table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  border-spacing: 0;
+  background-color: var(--color-card);
+}
+
+.article-body th,
+.article-body td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-body th {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.article-body td {
+  min-width: 8rem;
+  color: var(--color-text);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.article-body tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+.article-body tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .article-body th,
+  .article-body td {
+    padding: 0.7rem 0.8rem;
+  }
+}
