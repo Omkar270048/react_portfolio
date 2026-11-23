@@ -352,10 +352,10 @@ export default function App() {
                 Omkar Kamat
               </h1>
               <h2 className="font-display font-medium text-2xl sm:text-3xl text-muted mb-8 cursor-blink">
-                Python Full Stack Developer
+                Full Stack Developer
               </h2>
               <p className="font-body text-muted text-base sm:text-lg leading-relaxed mb-10 max-w-3xl">
-                Python Full Stack Developer with 2+ years of experience engineering end-to-end web applications, interactive operational dashboards, and high-throughput REST APIs using React.js, FastAPI, Django, and PostgreSQL.
+                Full Stack Developer with 2+ years of experience engineering end-to-end web applications, interactive operational dashboards, and high-throughput REST APIs using React.js, FastAPI, Django, and PostgreSQL.
                 <br />
                 <br />
                 Proven track record of replacing fragmented, manual workflows with full-stack digital solutions—spanning automated grading pipelines, real-time tracking screens, enterprise ERP portals, and transactional e-commerce platforms. Proficient in state management, reusable component design, database query optimization, and secure role-based access control (RBAC).
