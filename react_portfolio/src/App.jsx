@@ -20,6 +20,7 @@ import {
 } from "lucide-react"
 
 import Navbar from "@/components/Navbar"
+import Seo from "@/components/Seo"
 
 const SERVICES_DATA = [
   {
@@ -193,7 +194,7 @@ const PERSONAL_PROJECTS_DATA = [
     name: "WPSender",
     description:
       "Automated WhatsApp message delivery with a repeatable sending workflow, reducing the need for repetitive manual outreach.",
-    knowMoreUrl: "blogs/5087555",
+    knowMoreUrl: "/blogs/5087555",
     sourceUrl: "https://github.com/Omkar270048/WPSender",
     sourceLabel: "GitHub",
     viewUrl: "",
@@ -203,7 +204,7 @@ const PERSONAL_PROJECTS_DATA = [
     name: "k-quill-editor",
     description:
       "Built a reusable React rich-text editor around Quill, simplifying editor integration through a consistent component interface.",
-    knowMoreUrl: "blogs/5099026",
+    knowMoreUrl: "/blogs/5099026",
     sourceUrl: "https://github.com/Omkar270048/k-quill-editor",
     sourceLabel: "GitHub",
     viewUrl: "https://www.npmjs.com/package/@omkar-kamat/quill-keditor",
@@ -213,7 +214,7 @@ const PERSONAL_PROJECTS_DATA = [
     name: "Invoice Data Extraction",
     description:
       "Created an invoice-processing workflow that extracts structured fields from documents, helping turn manual data entry into reusable digital records.",
-    knowMoreUrl: "blogs/5099182",
+    knowMoreUrl: "/blogs/5099182",
     sourceUrl: "https://colab.research.google.com/drive/1peix8zg1lgHSSWMfFXiHWL7r0FdUfxIv?usp=sharing",
     sourceLabel: "Google Colab",
     viewUrl: "",
@@ -338,6 +339,13 @@ export default function App() {
 
   return (
     <div className="bg-bg text-text min-h-screen">
+      <Seo
+        title="Omkar Kamat – Python Full Stack Developer"
+        description="Portfolio of Omkar Kamat, a Python Full Stack Developer in Mumbai building React.js, FastAPI, Django, and PostgreSQL applications, checkout systems, automation pipelines, and scalable web platforms."
+        path="/"
+        image="/pic.png"
+        keywords="Omkar Kamat, Python Full Stack Developer, React developer, FastAPI developer, Django developer, PostgreSQL, software developer Mumbai, portfolio"
+      />
       <Navbar />
       
       {/* ── HERO SECTION ── */}
@@ -352,10 +360,10 @@ export default function App() {
                 Omkar Kamat
               </h1>
               <h2 className="font-display font-medium text-2xl sm:text-3xl text-muted mb-8 cursor-blink">
-                Full Stack Developer
+                Python Full Stack Developer
               </h2>
               <p className="font-body text-muted text-base sm:text-lg leading-relaxed mb-10 max-w-3xl">
-                Full Stack Developer with 2+ years of experience engineering end-to-end web applications, interactive operational dashboards, and high-throughput REST APIs using React.js, FastAPI, Django, and PostgreSQL.
+                Python Full Stack Developer with 2+ years of experience engineering end-to-end web applications, interactive operational dashboards, and high-throughput REST APIs using React.js, FastAPI, Django, and PostgreSQL.
                 <br />
                 <br />
                 Proven track record of replacing fragmented, manual workflows with full-stack digital solutions—spanning automated grading pipelines, real-time tracking screens, enterprise ERP portals, and transactional e-commerce platforms. Proficient in state management, reusable component design, database query optimization, and secure role-based access control (RBAC).
@@ -379,9 +387,11 @@ export default function App() {
             <div className="shrink-0 flex justify-center md:justify-end">
               <img
                 src="/pic.png"
-                alt="Portrait of Omkar Kamat"
+                alt="Portrait of Omkar Kamat, Python Full Stack Developer"
                 width="240"
                 height="240"
+                fetchPriority="high"
+                decoding="async"
                 className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-accent/30 shadow-2xl"
               />
             </div>
@@ -495,10 +505,10 @@ export default function App() {
                   @omkar-kamat/quill-keditor
                 </h3>
                 <p className="font-body text-muted text-sm leading-relaxed mb-5">
-                  Engineered a modular, reusable Quill-based ReactJS rich-text editor component with clean lifecycle management, isolated styling, and zero external runtime dependencies. Distributed publicly on the npm registry to simplify rich-text workflows.
+                  Engineered a modular, reusable Quill-based ReactJS rich-text editor component with clean lifecycle management, isolated styling, and no extra runtime dependencies beyond Quill/React. Distributed publicly on the npm registry to simplify rich-text workflows.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {["React.js", "Quill.js", "Component Architecture", "npm Registry", "Zero Dependencies"].map((tag) => (
+                  {["React.js", "Quill.js", "Component Architecture", "npm Registry"].map((tag) => (
                     <span
                       key={tag}
                       className="bg-accent/10 border border-accent/20 text-accentL text-xs font-mono px-3 py-1 rounded-full"
@@ -510,7 +520,7 @@ export default function App() {
                 <a
                   href="https://www.npmjs.com/package/@omkar-kamat/quill-keditor"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-display font-medium text-accent hover:text-accentL transition-colors"
                 >
                   View on npm
@@ -632,7 +642,7 @@ export default function App() {
                     <a
                       href={project.knowMoreUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accentL transition-colors"
                     >
                       Know more
@@ -643,7 +653,7 @@ export default function App() {
                     <a
                       href={project.sourceUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accentL transition-colors"
                     >
                       {project.sourceLabel}
@@ -654,10 +664,10 @@ export default function App() {
                     <a
                       href={project.viewUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="text-sm font-medium text-text hover:text-accentL transition-colors"
                     >
-                      View
+                      View Demo
                     </a>
                   )}
                 </div>
@@ -730,7 +740,7 @@ export default function App() {
                   key={link.name}
                   href={link.url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-muted hover:text-text transition-colors"
                   aria-label={link.name}
                 >

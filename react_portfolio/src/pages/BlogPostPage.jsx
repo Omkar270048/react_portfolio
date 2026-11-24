@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
-import { ArrowLeft, Calendar, Clock, ExternalLink } from "lucide-react"
+import { Calendar, Clock, ExternalLink } from "lucide-react"
 import Navbar from "@/components/Navbar"
+import Seo, { SITE_URL } from "@/components/Seo"
+
 export default function BlogPostPage() {
   const { id } = useParams()
   const [post, setPost] = useState(null)
@@ -29,10 +31,101 @@ export default function BlogPostPage() {
     }
   }, [id])
 
+  const canonicalPath = `/blogs/${id}`
+  const pageTitle = post?.title || "Blog article"
+  const pageDescription =
+    post?.description || "Read engineering insights, project write-ups, and technical articles by Omkar Kamat."
+  const pageImage = post?.social_image || post?.cover_image || "/pic.png"
+  const articleJsonLd = post
+    ? {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: pageDescription,
+            image: pageImage ? [pageImage] : undefined,
+            datePublished: post.published_at,
+            dateModified: post.edited_at || post.published_at,
+            author: {
+              "@type": "Person",
+              name: "Omkar Kamat",
+              url: SITE_URL,
+            },
+            publisher: {
+              "@type": "Person",
+              name: "Omkar Kamat",
+              url: SITE_URL,
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `${SITE_URL}${canonicalPath}`,
+            },
+            keywords: Array.isArray(post.tags) ? post.tags.join(", ") : undefined,
+            url: `${SITE_URL}${canonicalPath}`,
+            isBasedOn: post.url,
+          },
+          {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${SITE_URL}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog & Articles",
+                item: `${SITE_URL}/blogs`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: `${SITE_URL}${canonicalPath}`,
+              },
+            ],
+          },
+        ],
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${SITE_URL}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog & Articles",
+            item: `${SITE_URL}/blogs`,
+          },
+        ],
+      }
+
   return (
     <div className="bg-bg text-text min-h-screen">
+      <Seo
+        title={pageTitle}
+        description={pageDescription}
+        path={canonicalPath}
+        image={pageImage}
+        imageAlt={post?.title || "Omkar Kamat blog article"}
+        type={post ? "article" : "website"}
+        noindex={Boolean(error)}
+        keywords={Array.isArray(post?.tags) ? post.tags.join(", ") : undefined}
+        publishedTime={post?.published_at}
+        modifiedTime={post?.edited_at || post?.published_at}
+        jsonLd={articleJsonLd}
+      />
       {/* Top Navigation */}
-        <Navbar />
+      <Navbar />
 
       {/* Main Content */}
       <main className="pt-24 pb-20 max-w-4xl mx-auto px-6">
@@ -58,6 +151,8 @@ export default function BlogPostPage() {
               <img
                 src={post.cover_image}
                 alt={post.title}
+                loading="eager"
+                decoding="async"
                 className="w-full h-72 sm:h-96 object-cover rounded-2xl mb-8 border border-border"
               />
             )}
@@ -112,7 +207,7 @@ export default function BlogPostPage() {
               <a
                 href={post.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-accent hover:text-accentL"
               >
                 View original post on Dev.to

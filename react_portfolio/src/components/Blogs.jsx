@@ -38,7 +38,7 @@ export default function Blogs() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="mb-10">
           <p className="font-mono text-accent text-xs tracking-widest mb-2">WRITING &amp; INSIGHTS</p>
-          <h2 className="font-display font-bold text-3xl text-text mb-4">Blog &amp; Articles</h2>
+          <h1 className="font-display font-bold text-3xl text-text mb-4">Blog &amp; Articles</h1>
           <p className="font-body text-muted text-base max-w-2xl leading-relaxed">
             Engineering write-ups, backend patterns, and software architecture deep dives.
           </p>
@@ -76,6 +76,8 @@ export default function Blogs() {
                       <img
                         src={post.cover_image}
                         alt={post.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-48 object-cover rounded-lg mb-4 border border-border"
                       />
                     )}
