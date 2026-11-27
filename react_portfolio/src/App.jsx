@@ -1,11 +1,6 @@
 import { useEffect } from "react"
 import {
-  ArrowRight,
-  Code2,
-  Layers,
   Repeat,
-  Sparkles,
-  ShieldCheck,
   ExternalLink,
   GraduationCap,
   Mail,
@@ -15,64 +10,12 @@ import {
 } from "lucide-react"
 
 import Navbar from "@/components/Navbar"
+import Hero from "@/components/Hero"
+import Projects from "@/components/Projects"
+import Services from "@/components/Services"
 import Seo from "@/components/Seo"
 import TechSkill from "@/components/TechSkill"
-
-const SERVICES_DATA = [
-  {
-    id: "fullstack",
-    icon: Code2,
-    title: "Full-Stack Web Development",
-    description:
-      "Engineering end-to-end web applications, interactive operational dashboards, and responsive frontends paired with high-throughput backend services.",
-    deliverables: [
-      "Dynamic SPAs & interactive dashboards (React.js, Vite)",
-      "State management & reusable UI component architecture",
-      "High-throughput RESTful API design (FastAPI, Django)",
-      "Database schema modeling, indexing & query tuning",
-      "Asynchronous workflows & concurrency with Asyncio",
-    ],
-  },
-  {
-    id: "ecommerce-fintech",
-    icon: Layers,
-    title: "E-Commerce & Checkout Engines",
-    description:
-      "Architecting reliable checkout systems, order management workflows, and secure payment integrations built to handle high daily transaction volumes.",
-    deliverables: [
-      "Transactional single-page checkout flows & live stock validation",
-      "Razorpay payment gateway integration & webhook handling",
-      "Idempotency controls to eliminate double-charge scenarios",
-      "Custom shopping cart state machines & error recovery",
-    ],
-  },
-  {
-    id: "ai-vision",
-    icon: Sparkles,
-    title: "AI Pipelines & Computer Vision",
-    description:
-      "Deploying automated document processing, computer vision pipelines, and structured LLM systems to eliminate manual administrative overhead.",
-    deliverables: [
-      "OpenCV batch image preprocessing & grid extraction",
-      "Automated OMR sheet correction engines (99% accuracy)",
-      "Asynchronous LLM evaluation pipelines (Gemini, OpenAI)",
-      "Pydantic-validated structured JSON output extraction",
-    ],
-  },
-  {
-    id: "enterprise-architecture",
-    icon: ShieldCheck,
-    title: "Enterprise Portals & Systems",
-    description:
-      "Replacing fragmented legacy spreadsheets with centralized ERP systems, audit logs, and secure access management.",
-    deliverables: [
-      "Role-Based Access Control (RBAC) & JWT authentication",
-      "Kanban sprint boards, task workflows, and audit logs",
-      "Relational schema normalization & latency reduction in PostgreSQL",
-      "Containerized deployment with Docker and Linux systems",
-    ],
-  },
-]
+import WorkExperience from "@/components/WorkExperience"
 
 const EXPERIENCE_DATA = [
   {
@@ -277,10 +220,6 @@ export default function App() {
 
     reveals.forEach((el) => observer.observe(el))
 
-    document.querySelectorAll(".hero-grid .reveal").forEach((el, i) => {
-      setTimeout(() => el.classList.add("visible"), i * 150)
-    })
-
     return () => observer.disconnect()
   }, [])
 
@@ -295,100 +234,9 @@ export default function App() {
       />
       <Navbar />
       
-      {/* ── HERO SECTION ── */}
-      <section id="about" className="hero-grid min-h-screen flex items-center pt-14">
-        <div className="max-w-5xl mx-auto px-6 py-24 w-full">
-          <div className="reveal flex flex-col-reverse md:flex-row md:items-center gap-10 lg:gap-16">
-            <div className="flex-1">
-              <p className="font-mono text-accent text-sm mb-4 tracking-widest">
-                Hello, world. I am
-              </p>
-              <h1 className="font-display font-bold text-5xl sm:text-7xl text-text leading-none mb-3 accent-glow">
-                Omkar Kamat
-              </h1>
-              <h2 className="font-display font-medium text-2xl sm:text-3xl text-muted mb-8 cursor-blink">
-                Python Full Stack Developer
-              </h2>
-              <p className="font-body text-muted text-base sm:text-lg leading-relaxed mb-10 max-w-3xl">
-                Software Developer specializing in Python, FastAPI, and React.js
-                <br />
-                <br />
-                Building high-concurrency backend services, asynchronous pipelines, and clean user interfaces
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="#experience"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accentL text-white font-display font-medium text-sm rounded-lg transition-colors duration-200"
-                >
-                  View my work
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-accent text-muted hover:text-text font-display font-medium text-sm rounded-lg transition-colors duration-200"
-                >
-                  Get in touch
-                </a>
-              </div>
-            </div>
-            <div className="shrink-0 flex justify-center md:justify-end">
-              <img
-                src="/pic.png"
-                alt="Portrait of Omkar Kamat, Python Full Stack Developer"
-                width="240"
-                height="240"
-                fetchPriority="high"
-                decoding="async"
-                className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-accent/30 shadow-2xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
-      {/* ── SERVICES / CAPABILITIES ── */}
-      <section id="services" className="py-20 border-t border-border">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="reveal mb-12">
-            <p className="font-mono text-accent text-xs tracking-widest mb-2">SERVICES &amp; SOLUTIONS</p>
-            <h2 className="font-display font-bold text-3xl text-text mb-4">What I Do</h2>
-            <p className="font-body text-muted text-base max-w-2xl leading-relaxed">
-              I develop performant, reliable digital architectures—from production React SPAs and checkout gateways to asynchronous background processors and normalized SQL engines.
-            </p>
-          </div>
-
-          <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-6">
-            {SERVICES_DATA.map((service) => {
-              const ServiceIcon = service.icon
-              return (
-                <div
-                  key={service.id}
-                  className="bg-card border border-border rounded-2xl p-8 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center mb-6 text-text">
-                      <ServiceIcon className="w-5 h-5" />
-                    </div>
-                    <h3 className="font-display font-bold text-xl text-text mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="font-body text-muted text-sm leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-2 mb-8 font-body text-muted text-sm leading-relaxed">
-                      {service.deliverables.map((item, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="text-accent">•</span> <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      <Services />
 
       <TechSkill />
 
@@ -448,135 +296,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── WORK EXPERIENCE ── */}
-      <section id="experience" className="py-20 border-t border-border">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="reveal mb-12">
-            <p className="font-mono text-accent text-xs tracking-widest mb-2">CAREER TIMELINE</p>
-            <h2 className="font-display font-bold text-3xl text-text">Work Experience</h2>
-          </div>
-          <div className="space-y-12">
-            {EXPERIENCE_DATA.map((exp) => (
-              <div key={exp.id} className="reveal timeline-item">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
-                  <div>
-                    <h3 className="font-display font-bold text-xl text-text">{exp.company}</h3>
-                    <p className="font-body text-accent text-sm font-medium">{exp.role}</p>
-                  </div>
-                  <span className="font-mono text-xs text-muted bg-surface border border-border px-3 py-1 rounded-full self-start">
-                    {exp.period}
-                  </span>
-                </div>
-                <p className="font-body text-muted text-sm mb-5 leading-relaxed max-w-3xl">
-                  {exp.summary}
-                </p>
+      <WorkExperience experiences={EXPERIENCE_DATA} />
 
-                {/* Sub-projects grid */}
-                {exp.projects.length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {exp.projects.map((proj, pIdx) => (
-                      <div
-                        key={pIdx}
-                        className="proj-card bg-card border border-border rounded-lg p-5 flex flex-col justify-between"
-                      >
-                        <div>
-                          <p className="font-display font-semibold text-sm text-text mb-2">
-                            {proj.name}
-                          </p>
-                          <p className="font-body text-xs text-muted leading-relaxed">
-                            {proj.description}
-                          </p>
-                        </div>
-                        <div className="flex gap-1.5 mt-4 flex-wrap items-center pt-2 border-t border-border/50">
-                          {proj.tags.map((tag, tIdx) => (
-                            <span key={tIdx} className="flex items-center gap-1.5">
-                              <span className="text-xs font-mono text-accent/80">{tag}</span>
-                              {tIdx < proj.tags.length - 1 && (
-                                <span className="text-xs text-muted/60">·</span>
-                              )}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── PERSONAL PROJECTS ── */}
-      <section id="personal-projects" className="py-20 border-t border-border">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="reveal mb-12">
-            <p className="font-mono text-accent text-xs tracking-widest mb-2">SELECTED WORK</p>
-            <h2 className="font-display font-bold text-3xl text-text">Personal Projects</h2>
-          </div>
-          <div className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PERSONAL_PROJECTS_DATA.map((project) => (
-              <article
-                key={project.name}
-                className="proj-card bg-card border border-border rounded-xl p-6 flex flex-col"
-              >
-                <div className="flex-1">
-                  <h3 className="font-display font-semibold text-lg text-text mb-3">
-                    {project.name}
-                  </h3>
-                  <p className="font-body text-sm text-muted leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-surface border border-border text-muted text-xs font-mono px-3 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-4 mt-5 pt-4 border-t border-border/50">
-                  {project.knowMoreUrl && (
-                    <a
-                      href={project.knowMoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accentL transition-colors"
-                    >
-                      Know more
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-                  {project.sourceUrl && (
-                    <a
-                      href={project.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accentL transition-colors"
-                    >
-                      {project.sourceLabel}
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-                  {project.viewUrl && (
-                    <a
-                      href={project.viewUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-text hover:text-accentL transition-colors"
-                    >
-                      View Demo
-                    </a>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Projects projects={PERSONAL_PROJECTS_DATA} />
 
       {/* ── EDUCATION ── */}
       <section id="education" className="py-16 border-t border-border">
