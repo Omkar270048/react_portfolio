@@ -81,26 +81,6 @@ const EXPERIENCE_DATA = [
 
 const PERSONAL_PROJECTS_DATA = [
   {
-    name: "WPSender",
-    description:
-      "Automated WhatsApp message delivery with a repeatable sending workflow, reducing the need for repetitive manual outreach.",
-    knowMoreUrl: "/blogs/5087555",
-    sourceUrl: "https://github.com/Omkar270048/WPSender",
-    sourceLabel: "GitHub",
-    viewUrl: "",
-    tags: ["WhatsApp", "Automation"],
-  },
-  {
-    name: "k-quill-editor",
-    description:
-      "Built a reusable React rich-text editor around Quill, simplifying editor integration through a consistent component interface.",
-    knowMoreUrl: "/blogs/5099026",
-    sourceUrl: "https://github.com/Omkar270048/k-quill-editor",
-    sourceLabel: "GitHub",
-    viewUrl: "https://www.npmjs.com/package/@omkar-kamat/quill-keditor",
-    tags: ["React.js", "Quill.js", "Rich Text Editing"],
-  },
-  {
     name: "Invoice Data Extraction",
     description:
       "Created an invoice-processing workflow that extracts structured fields from documents, helping turn manual data entry into reusable digital records.",
@@ -129,6 +109,26 @@ const PERSONAL_PROJECTS_DATA = [
     sourceLabel: "Google Colab",
     viewUrl: "",
     tags: ["Image Classification", "Machine Learning"],
+  },
+  {
+    name: "WPSender",
+    description:
+      "Automated WhatsApp message delivery with a repeatable sending workflow, reducing the need for repetitive manual outreach.",
+    knowMoreUrl: "/blogs/5087555",
+    sourceUrl: "https://github.com/Omkar270048/WPSender",
+    sourceLabel: "GitHub",
+    viewUrl: "",
+    tags: ["WhatsApp", "Automation"],
+  },
+  {
+    name: "k-quill-editor",
+    description:
+      "Built a reusable React rich-text editor around Quill, simplifying editor integration through a consistent component interface.",
+    knowMoreUrl: "/blogs/5099026",
+    sourceUrl: "https://github.com/Omkar270048/k-quill-editor",
+    sourceLabel: "GitHub",
+    viewUrl: "https://www.npmjs.com/package/@omkar-kamat/quill-keditor",
+    tags: ["React.js", "Quill.js", "Rich Text Editing"],
   },
   {
     name: "Virtual Keyboard",
