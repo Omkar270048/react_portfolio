@@ -4,13 +4,8 @@ import {
   Code2,
   Layers,
   Repeat,
-  Network,
-  Monitor,
-  Database,
   Sparkles,
   ShieldCheck,
-  Cpu,
-  GitBranch,
   ExternalLink,
   GraduationCap,
   Mail,
@@ -21,6 +16,7 @@ import {
 
 import Navbar from "@/components/Navbar"
 import Seo from "@/components/Seo"
+import TechSkill from "@/components/TechSkill"
 
 const SERVICES_DATA = [
   {
@@ -36,7 +32,6 @@ const SERVICES_DATA = [
       "Database schema modeling, indexing & query tuning",
       "Asynchronous workflows & concurrency with Asyncio",
     ],
-    cta: { text: "Start a conversation", href: "#contact" },
   },
   {
     id: "ecommerce-fintech",
@@ -50,7 +45,6 @@ const SERVICES_DATA = [
       "Idempotency controls to eliminate double-charge scenarios",
       "Custom shopping cart state machines & error recovery",
     ],
-    cta: { text: "Discuss a Project", href: "#contact" },
   },
   {
     id: "ai-vision",
@@ -64,7 +58,6 @@ const SERVICES_DATA = [
       "Asynchronous LLM evaluation pipelines (Gemini, OpenAI)",
       "Pydantic-validated structured JSON output extraction",
     ],
-    cta: { text: "Explore Automation", href: "#contact" },
   },
   {
     id: "enterprise-architecture",
@@ -78,52 +71,6 @@ const SERVICES_DATA = [
       "Relational schema normalization & latency reduction in PostgreSQL",
       "Containerized deployment with Docker and Linux systems",
     ],
-    cta: { text: "Schedule a Meeting", href: "#contact" },
-  },
-]
-
-const SKILLS_DATA = [
-  {
-    id: "frontend",
-    icon: Monitor,
-    title: "Frontend Engineering",
-    description: "Building responsive, modern user interfaces with structured state management and reusable components.",
-    skills: ["React.js (Vite)", "JavaScript (ES6+)", "HTML5", "CSS3", "State Management", "Responsive UI"],
-  },
-  {
-    id: "backend",
-    icon: Cpu,
-    title: "Backend & APIs",
-    description: "Developing robust, asynchronous REST APIs, services, and validation layers.",
-    skills: ["Python", "FastAPI", "Django", "REST APIs", "Pydantic", "SQLAlchemy", "Asyncio", "Pytest / Unittest"],
-  },
-  {
-    id: "database",
-    icon: Database,
-    title: "Databases & Optimization",
-    description: "Designing normalized schemas, complex joins, indexing strategies, and caching layers.",
-    skills: ["PostgreSQL", "MySQL", "Redis", "Schema Design", "Indexing", "Query Optimization", "SQL Joins"],
-  },
-  {
-    id: "ai-automation",
-    icon: Sparkles,
-    title: "Automation, Vision & AI",
-    description: "Engineering computer vision pipelines and integrating LLMs with structured schemas.",
-    skills: ["OpenCV", "LLM APIs (Gemini, OpenAI)", "Image Processing", "Structured JSON Validation"],
-  },
-  {
-    id: "security",
-    icon: Network,
-    title: "Security & Architecture",
-    description: "Enforcing defense-in-depth principles, permission models, and clean API exception handling.",
-    skills: ["RBAC", "JWT Authentication", "Data Validation", "API Error Handling", "Micro-architectures"],
-  },
-  {
-    id: "devops",
-    icon: GitBranch,
-    title: "DevOps & Tooling",
-    description: "Managing containerized applications, CI/CD routines, and version control workflows.",
-    skills: ["Docker", "Linux", "Git", "GitHub", "CI/CD", "Postman"],
   },
 ]
 
@@ -363,10 +310,10 @@ export default function App() {
                 Python Full Stack Developer
               </h2>
               <p className="font-body text-muted text-base sm:text-lg leading-relaxed mb-10 max-w-3xl">
-                Python Full Stack Developer with 2+ years of experience engineering end-to-end web applications, interactive operational dashboards, and high-throughput REST APIs using React.js, FastAPI, Django, and PostgreSQL.
+                Software Developer specializing in Python, FastAPI, and React.js
                 <br />
                 <br />
-                Proven track record of replacing fragmented, manual workflows with full-stack digital solutions—spanning automated grading pipelines, real-time tracking screens, enterprise ERP portals, and transactional e-commerce platforms. Proficient in state management, reusable component design, database query optimization, and secure role-based access control (RBAC).
+                Building high-concurrency backend services, asynchronous pipelines, and clean user interfaces
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
@@ -436,14 +383,6 @@ export default function App() {
                       ))}
                     </ul>
                   </div>
-                  <div>
-                    <a
-                      href={service.cta.href}
-                      className="inline-flex items-center text-xs font-medium text-text bg-surface border border-border px-4 py-2 rounded-full hover:bg-border transition-colors"
-                    >
-                      {service.cta.text} <span className="ml-1 opacity-50">··</span>
-                    </a>
-                  </div>
                 </div>
               )
             })}
@@ -451,45 +390,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── TECHNICAL SKILLS ── */}
-      <section id="skills" className="py-20 border-t border-border">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="reveal mb-12">
-            <p className="font-mono text-accent text-xs tracking-widest mb-2">SKILLS &amp; TECHNOLOGIES</p>
-            <h2 className="font-display font-bold text-3xl text-text">Technical Skills</h2>
-          </div>
-          <div className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SKILLS_DATA.map((category) => {
-              const SkillIcon = category.icon
-              return (
-                <div key={category.id} className="bg-card border border-border rounded-xl p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
-                      <SkillIcon className="w-4 h-4" />
-                    </div>
-                    <p className="font-display font-semibold text-sm text-text">
-                      {category.title}
-                    </p>
-                  </div>
-                  <p className="text-xs text-muted mb-4 leading-relaxed">
-                    {category.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="skill-pill bg-surface border border-border text-muted text-xs font-mono px-3 py-1 rounded-full cursor-default"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      <TechSkill />
 
       {/* ── OPEN SOURCE SPOTLIGHT ── */}
       <section className="py-16 border-t border-border">
