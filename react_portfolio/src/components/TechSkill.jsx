@@ -236,9 +236,12 @@ export default function TechSkill() {
                       fill="none"
                     />
                     <text
-                      className="pointer-events-none select-none"
+                      className={`pointer-events-none select-none ${
+                        skill.length > 14
+                          ? "text-[18px] sm:text-[10px]"
+                          : "text-[20px] sm:text-[11px]"
+                      }`}
                       fill={isHovered ? "#ffffff" : "#cbd5e1"}
-                      fontSize={skill.length > 14 ? 10 : 11}
                       fontWeight="600"
                       textAnchor="middle"
                     >
@@ -292,9 +295,8 @@ export default function TechSkill() {
                       }}
                     />
                     <text
-                      className="pointer-events-none select-none"
+                      className="pointer-events-none select-none text-[20px] sm:text-xs"
                       fill={isActive ? "#ffffff" : "#cbd5e1"}
-                      fontSize="12"
                       fontWeight="700"
                       letterSpacing="0.6"
                       textAnchor="middle"
@@ -324,14 +326,14 @@ export default function TechSkill() {
               >
                 <ActiveIcon size={17} aria-hidden="true" />
               </span>
-              <span className="max-w-[90px] truncate font-mono text-[9px] uppercase tracking-wide text-muted sm:text-[10px]">
+              <span className="max-w-[90px] truncate font-mono text-[12px] uppercase tracking-wide text-muted sm:text-[12px]">
                 {activeCategory.label}
               </span>
             </div>
           </div>
 
           <div
-            className="relative z-10 mx-auto mt-2 flex w-fit max-w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-center font-mono text-[10px] text-muted sm:text-xs"
+            className="relative z-10 mx-auto mt-2 flex w-fit max-w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-center font-mono text-[14px] text-muted sm:text-xs"
             aria-live="polite"
           >
             <span
